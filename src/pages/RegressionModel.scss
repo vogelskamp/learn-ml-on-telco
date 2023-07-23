@@ -1,0 +1,34 @@
+.log-section {
+    margin-top: 14px;
+    background-color: rgb(39, 40, 34);
+    padding: 33px;
+    line-height: 2rem;
+
+    font-family: Consolas, monospace;
+    border-radius: 0.3em;
+}
+
+.horizontal-flex {
+    display: flex;
+
+    .log-section {
+        margin-top: 0 !important;
+    }
+
+    .item:first-of-type {
+        margin-right: 20px;
+
+        pre {
+            margin: 0 !important;
+            height: calc(100% - 34px);
+        }
+    }
+
+    .item:last-of-type {
+        margin-left: auto;
+    }
+
+    .item {
+        width: 100%;
+    }
+}
