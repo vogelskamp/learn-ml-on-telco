@@ -1,0 +1,14 @@
+.tabular-list-item {
+    display: grid;
+    padding: 26px 27px;
+    background-color: #FAFAFA;
+
+    font-size: 24px;
+    font-weight: 200;
+
+    grid-template-rows: 45px 100%;
+
+    div {
+        margin: 0 10px;
+    }
+}
