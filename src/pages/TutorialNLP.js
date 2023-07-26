@@ -1,4 +1,13 @@
+import PythonHighlighter from "../components/PythonHighlighter";
 import TutorialLayout from "../components/TutorialLayout";
+
+const code = [
+  "tokenizer('gut')     # [101, 18986,   102,   0]",
+  "",
+  "tokenizer('super')   # [101, 12278,   102,   0]",
+  "",
+  "tokenizer('grausam') # [101, 88612, 11064, 102]",
+].join("\n");
 
 const sections = [
   {
@@ -35,6 +44,7 @@ const sections = [
             zweier Wörter ist, desto näher sind sie in diesem Raum platziert.
           </>
         ),
+        visual: <PythonHighlighter>{code}</PythonHighlighter>,
       },
       {
         text: (
@@ -64,6 +74,12 @@ const sections = [
             Verarbeitung mehrerer Wörter ein Verständnis für den Kontext
             aufbauen und beibehalten können.
           </>
+        ),
+        visual: (
+          <img
+            src={require("../assets/transformer_attention.png")}
+            alt="Verbildlichung der Attention von Transformer Modellen"
+          />
         ),
       },
       {
