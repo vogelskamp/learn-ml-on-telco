@@ -6,12 +6,13 @@ import SpamSMSCode from "!!raw-loader!../tutorial-code/SpamSMS.py";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./SpamSMS.scss";
 
-function SpamSMS() {
+function SpamSMS({ onClose }) {
   return (
     <MLApplication
       title={"KLASSIFIZIERUNG VON SPAM SMS"}
       example={getExample()}
       tutorial={getTutorial()}
+      onClose={onClose}
     />
   );
 }
@@ -33,7 +34,7 @@ function getExample() {
   const { REACT_APP_SMS_PHONENUMBER: SMS_PHONENUMBER = "" } = process.env;
   return (
     <div>
-      <div className="try-it-out">
+      <div className="SPAM_try-it-out">
         Schreib eine SMS an:
         <br />
         <div className="strong">{SMS_PHONENUMBER}</div>

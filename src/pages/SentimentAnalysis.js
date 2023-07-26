@@ -6,12 +6,13 @@ import SentimentAnalysisCode from "!!raw-loader!../tutorial-code/SentimentAnalys
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./SentimentAnalysis.scss";
 
-function SentimentAnalysis() {
+function SentimentAnalysis({ onClose }) {
   return (
     <MLApplication
       title={"SENTIMENT ANALYSIS AUF SMS"}
       example={getExample()}
       tutorial={getTutorial()}
+      onClose={onClose}
     />
   );
 }
@@ -35,7 +36,7 @@ function getExample() {
   const { REACT_APP_SMS_PHONENUMBER: SMS_PHONENUMBER = "" } = process.env;
   return (
     <div>
-      <div className="try-it-out">
+      <div className="SA_try-it-out">
         Schreib eine SMS an:
         <br />
         <div className="strong">{SMS_PHONENUMBER}</div>

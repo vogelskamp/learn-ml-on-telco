@@ -33,12 +33,13 @@ const mic_icon = (
   </svg>
 );
 
-function SentimentAnalysis() {
+function AudioTranscription({ onClose }) {
   return (
     <MLApplication
       title={"TRANSKRIBIERUNG VON ANRUFEN"}
       example={getExample()}
       tutorial={getTutorial()}
+      onClose={onClose}
     />
   );
 }
@@ -46,7 +47,7 @@ function SentimentAnalysis() {
 function getExample() {
   return (
     <>
-      <div className="try-it-out">
+      <div className="AT_try-it-out">
         <Button text="Audio hochladen" />
         oder
         <Button text="aufnehmen" icon={mic_icon} />
@@ -147,4 +148,4 @@ function getTutorial() {
   );
 }
 
-export default SentimentAnalysis;
+export default AudioTranscription;

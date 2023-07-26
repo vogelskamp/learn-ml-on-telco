@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { CLOSE_BUTTON } from "../graphics";
 import "./MLApplication.scss";
 
-function MLApplication({ title, example, tutorial }) {
+function MLApplication({ title, example, tutorial, onClose }) {
   const [tab, setTab] = useState(0);
 
   return (
     <div className="application">
+      <div id="close-button" onClick={onClose}>
+        {CLOSE_BUTTON}
+      </div>
+
       <div className="title-section">
         <div className="title">{title}</div>
       </div>

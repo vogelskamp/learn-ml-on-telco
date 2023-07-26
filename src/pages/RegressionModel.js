@@ -10,12 +10,13 @@ import CodePhrase from "../components/CodePhrase";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./RegressionModel.scss";
 
-function RegressionModel() {
+function RegressionModel({ onClose }) {
   return (
     <MLApplication
       title={"TRANSKRIBIERUNG VON ANRUFEN"}
       example={getExample()}
       tutorial={getTutorial()}
+      onClose={onClose}
     />
   );
 }
