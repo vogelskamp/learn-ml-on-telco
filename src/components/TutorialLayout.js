@@ -36,7 +36,7 @@ function TutorialLayout({ sections, onClose }) {
         <div className="title">{title}</div>
         <div className="text-block">{pages[pageIdx].text}</div>
       </div>
-      <div className="visual-area tutorial-area"></div>
+      <div className="visual-area tutorial-area">{pages[pageIdx].visual}</div>
       <div className="foot-bar">
         {pages.map((_, idx) => (
           <div

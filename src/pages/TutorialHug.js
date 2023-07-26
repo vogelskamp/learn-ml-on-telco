@@ -1,5 +1,39 @@
 import CodePhrase from "../components/CodePhrase";
 import TutorialLayout from "../components/TutorialLayout";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import TrainCode from "!!raw-loader!../tutorial-code/FineTuning.train.py";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import LoadCode from "!!raw-loader!../tutorial-code/FineTuning.load.py";
+import PythonHighlighter from "../components/PythonHighlighter";
+
+const codeLines = TrainCode.split("\n");
+
+const initCode = [
+  ...codeLines.slice(3, 5),
+  codeLines[13],
+  codeLines[15],
+  "",
+  codeLines[16],
+].join("\n");
+
+const datasetCode = [
+  codeLines[2],
+  ...codeLines.slice(4, 8),
+  codeLines[18],
+  "",
+  codeLines[19],
+].join("\n");
+
+const splitCode = codeLines[22];
+
+const argsCode = [
+  ...codeLines.slice(0, 2),
+  codeLines[24],
+  ...codeLines.slice(7, 13),
+  ...codeLines.slice(26, 29),
+].join("\n");
+
+const trainCode = codeLines.slice(30).join("\n");
 
 const sections = [
   {
@@ -83,6 +117,7 @@ const sections = [
             Modellnamen einreichen.
           </>
         ),
+        visual: <PythonHighlighter>{initCode}</PythonHighlighter>,
       },
       {
         text: (
@@ -95,6 +130,9 @@ const sections = [
             Diese Daten werden anschließend über den Tokenizer zu Tokens
             verarbeitet, mit dem das Modell arbeiten kann.
           </>
+        ),
+        visual: (
+          <PythonHighlighter startLine={7}>{datasetCode}</PythonHighlighter>
         ),
       },
       {
@@ -109,6 +147,9 @@ const sections = [
             werden soll.
           </>
         ),
+        visual: (
+          <PythonHighlighter startLine={15}>{splitCode}</PythonHighlighter>
+        ),
       },
       {
         text: (
@@ -119,6 +160,9 @@ const sections = [
             definieren. Die verwendeten Angaben sind standardmäßig in der
             Dokumentation von huggingface erhältlich.
           </>
+        ),
+        visual: (
+          <PythonHighlighter startLine={16}>{argsCode}</PythonHighlighter>
         ),
       },
       {
@@ -142,6 +186,9 @@ const sections = [
             austauschen.
           </>
         ),
+        visual: (
+          <PythonHighlighter startLine={28}>{trainCode}</PythonHighlighter>
+        ),
       },
       {
         text: (
@@ -151,6 +198,7 @@ const sections = [
             werden:
           </>
         ),
+        visual: <PythonHighlighter>{LoadCode}</PythonHighlighter>,
       },
     ],
   },
