@@ -4,7 +4,10 @@ import TutorialLayout from "../components/TutorialLayout";
 import TrainCode from "!!raw-loader!../tutorial-code/FineTuning.train.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import LoadCode from "!!raw-loader!../tutorial-code/FineTuning.load.py";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MiniCode from "!!raw-loader!../tutorial-code/SentimentAnalysis.mini.py";
 import PythonHighlighter from "../components/PythonHighlighter";
+import "./TutorialHug.scss";
 
 const codeLines = TrainCode.split("\n");
 
@@ -54,6 +57,12 @@ const sections = [
             als Open Source-Projekte gemeinsam Lösungen erarbeiten.
           </>
         ),
+        visual: (
+          <img
+            src={require("../assets/huggingface.png")}
+            alt="Huggingface Logo"
+          />
+        ),
       },
     ],
   },
@@ -68,8 +77,14 @@ const sections = [
             vereinfachen die Entwicklung von NLP Lösungen extrem. Durch die
             einfache Angabe eines der unten gezeigten Tasks kann ein Modell
             geladen und für den Anwendungsfall genutzt werden:
-            <div>CODING BLOCK</div>
+            <PythonHighlighter>{MiniCode}</PythonHighlighter>
           </>
+        ),
+        visual: (
+          <img
+            src={require("../assets/huggingface_tasks.png")}
+            alt="Huggingface Tasks"
+          />
         ),
       },
     ],

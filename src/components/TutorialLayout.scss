@@ -81,8 +81,15 @@
         align-items: center;
         justify-content: center;
         
+
         pre {
             width: 1204px;
+        }
+
+        img {
+            max-height: 378px;
+            max-width: 1442px;
+            aspect-ratio: auto;
         }
     }
 
