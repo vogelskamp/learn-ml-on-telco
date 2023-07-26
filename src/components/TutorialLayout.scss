@@ -1,0 +1,143 @@
+.basic-tutorial {
+    display: grid;
+
+    grid-template-columns: 39px 1fr;
+    grid-template-rows: 1fr 1fr 39px;
+    
+    width: 100%;
+    height: 100%;
+
+    .side-bar {
+        display: flex;
+        flex-direction: column;
+
+        grid-row: 1;
+        grid-column: 1;
+
+        .section-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            max-height: 280px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
+            color: black;
+            background-color: #FAFAFA;
+
+            cursor: point;
+
+            &.active {
+                border: 0;
+                background-color: #FFF;
+            }
+
+            &.active + .section-button, &.active + .filler-section {
+                border-top: 1px solid black;
+            }
+
+            &:last-of-type {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    .side-bar-filler {
+        grid-row: span 2;
+        grid-column: 1;
+
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        background-color: #FAFAFA;
+    }
+
+    .text-area {
+        grid-row: 1;
+        grid-column: 2;
+
+        padding: 34px 54px;
+
+        .title {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .text-block {
+            text-align: justify;
+            color: black;
+            font-size: 22px;
+        }
+    }
+
+    .visual-area {
+        grid-row: 2;
+        grid-column: 2;
+
+        background-color: #FAFAFA;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .foot-bar {
+        grid-row: 3;
+        grid-column: 2;
+
+        display: flex;
+
+        .page-button, .filler-section, .prev-button, .next-button {
+            border-top: 1px solid black;
+        }
+
+        .page-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: black;
+
+            width: 100%;
+            max-width: 280px;
+
+            border-right: 1px solid black;
+            background-color: #FFF;
+
+            cursor: pointer;
+
+            &.active {
+                border: 0;
+                background-color: #FAFAFA;
+            }
+
+            &.active + .page-button, &.active + .filler-section {
+                border-left: 1px solid black;
+            }
+        }
+
+        .prev-button, .next-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #FAFAFA;
+
+            &.active {
+                color: black;
+                background-color: #FFF;
+                cursor: pointer;
+            }
+
+            min-width: 280px;
+
+            border-left: 1px solid black;
+        }
+
+        .filler-section {
+            width: 100%;
+            min-width: 280px;
+        }
+    }
+}
