@@ -1,0 +1,49 @@
+.funktionen {
+  max-width: 685px !important;
+}
+
+.funktionen-wide {
+  max-width: 1143px !important;
+}
+
+ol li {
+  margin-bottom: 15px;
+}
+
+.raten {
+  color: black;
+  font-size: 36px;
+}
+
+.formel {
+  max-width: 685px !important;
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 65px;
+
+  .slider-wrapper {
+    font-size: 30px;
+    width: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .strong {
+      font-size: 36px;
+      flex-shrink: 0;
+      margin-right: 15px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+svg {
+  aspect-ratio: auto;
+  max-height: 470px;
+}
