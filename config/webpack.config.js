@@ -1,5 +1,3 @@
-"use strict";
-
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
@@ -595,6 +593,7 @@ module.exports = function (webpackEnv) {
             : undefined
         )
       ),
+      new webpack.ProvidePlugin({ "window.decomp": "poly-decomp" }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
