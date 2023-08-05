@@ -1,8 +1,8 @@
 import "./Button.scss";
 
-function Button({ text, icon }) {
+function Button({ text, icon, onClick }) {
   return (
-    <button>
+    <button onClick={onClick}>
       {icon && <div>{icon}</div>}
       <div>{text}</div>
     </button>
