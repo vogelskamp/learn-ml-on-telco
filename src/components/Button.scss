@@ -1,23 +1,29 @@
-button {
-    display: flex;
+input[type="file"] {
+  display: none;
+}
 
-    align-items: center;
-    justify-content: center;
+button,
+.file-upload {
+  cursor: pointer;
+  display: flex;
 
-    width: 250px;
-    height: 75px;
+  align-items: center;
+  justify-content: center;
 
-    font-family: 'Inter';
-    font-size: 24px;
+  width: 250px;
+  height: 75px;
 
-    color: #444;
-    background-color: #FFF;
-    
-    border: none;
+  font-family: "Inter";
+  font-size: 24px;
 
-    box-shadow: 0px 3px 5px 0px #AAA;
+  color: #444;
+  background-color: #fff;
 
-    div {
-        padding: 0 5px;
-    }
+  border: none;
+
+  box-shadow: 0px 3px 5px 0px #aaa;
+
+  div {
+    padding: 0 5px;
+  }
 }
