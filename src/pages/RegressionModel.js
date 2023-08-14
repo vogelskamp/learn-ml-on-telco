@@ -6,9 +6,23 @@ import LoadCode from "!!raw-loader!../tutorial-code/Regression.load.py";
 import LoopCode from "!!raw-loader!../tutorial-code/Regression.loop.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import TrainCode from "!!raw-loader!../tutorial-code/Regression.train.py";
+
+import {
+  CartesianGrid,
+  Label,
+  Legend,
+  Scatter,
+  ScatterChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import CodePhrase from "../components/CodePhrase";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./RegressionModel.scss";
+
+import callData from "../assets/call_cells.json";
+import predictedData from "../assets/predicted_cells.json";
 
 function RegressionModel({ onClose }) {
   return (
@@ -22,9 +36,31 @@ function RegressionModel({ onClose }) {
 }
 
 function getExample() {
+  console.log({ callData, predictedData });
   return (
     <div className="content-area">
-      <div>TBD</div>
+      <ScatterChart
+        width={1200}
+        height={500}
+        margin={{ top: 0, bottom: 30, left: 10, right: 10 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="hour" type="number" name="Uhrzeit" unit="Uhr">
+          <Label value="Uhrzeit" position="bottom" />
+        </XAxis>
+        <YAxis dataKey="calls" type="number" name="Anrufe">
+          <Label
+            angle={-90}
+            value="Anrufe"
+            position="left"
+            style={{ textAnchor: "middle" }}
+          />
+        </YAxis>
+        <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+        <Legend verticalAlign="top" height={40} />
+        <Scatter name="Bekannte Daten" data={callData} fill="#0000FF" />
+        <Scatter name="Vorhersage" data={predictedData} fill="#FFAAAA" />
+      </ScatterChart>
     </div>
   );
 }

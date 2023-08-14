@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+
+src/assets/call_history.csv
+src/flask-server/__pycache__
