@@ -57,6 +57,7 @@
     "sass": "^1.64.0",
     "sass-loader": "^12.3.0",
     "semver": "^7.3.5",
+    "sipgateio": "^2.15.0",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
     "svg-path-parser": "^1.1.0",
@@ -71,7 +72,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "flask": "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python python3.9 -m flask --app ./src/flask-server/app.py run",
+    "io": "node ./src/sipgateio-server/SMSListenServer.js"
   },
   "eslintConfig": {
     "extends": [
