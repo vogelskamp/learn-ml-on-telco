@@ -8,11 +8,20 @@ import ErrorCurve from "../components/ErrorCurve";
 import PhysicsSim from "../components/PhysicsSim";
 import "./TutorialNN.scss";
 
-import { BRAIN_LOGO } from "../graphics";
+import AnimatedNetwork from "../components/AnimatedNetwork";
+import FileInput from "../components/FileInput";
+import { BRAIN_LOGO, CAT_ICON, DOG_ICON } from "../graphics";
 
 function TutorialNN({ onClose }) {
   const [chartValues, setChartValues] = useState([{ xValue: 0, yValue: 16 }]);
   const [buttonClicked, setButtonClicked] = useState(false);
+
+  // file upload
+  const [selectedFile, setSelectedFile] = useState();
+  const [isFilePicked, setIsFilePicked] = useState(false);
+  const [imageSrc, setImageSrc] = useState(false);
+
+  const [predictions, setPredictions] = useState({ cat: 0, dog: 0 });
 
   const getFullValues = () => {
     const values = [];
@@ -231,7 +240,7 @@ function TutorialNN({ onClose }) {
               komplett davon abhängt, welchen Wert unser Multiplikator <b>α</b>
               hat, können wir einen Graphen bilden, der uns für einen Wert{" "}
               <b>α</b> einen Fehler gibt.
-              <div className="flex-wrapper">
+              <div className="flex-wrapper" style={{ marginTop: "65px" }}>
                 <div className="slider-wrapper">
                   <div className="strong">α =</div>
                   <Slider
@@ -471,6 +480,24 @@ function TutorialNN({ onClose }) {
               Konkret sieht das Ganze so aus:
             </>
           ),
+          visual: (
+            <AnimatedNetwork
+              layers={[
+                {
+                  nodes: 2,
+                },
+                {
+                  nodes: 3,
+                },
+                {
+                  nodes: 3,
+                },
+                {
+                  nodes: 1,
+                },
+              ]}
+            />
+          ),
         },
         {
           text: (
@@ -488,7 +515,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    },
+    }, // INPUT/OUTPUT NN
     {
       title: "KLASSIFIZIERUNG UND REGRESSION",
       pages: [
@@ -503,6 +530,25 @@ function TutorialNN({ onClose }) {
               um ein <b>Regressionsmodell</b>.
             </>
           ),
+          visual: (
+            <AnimatedNetwork
+              animate={false}
+              layers={[
+                {
+                  nodes: 2,
+                },
+                {
+                  nodes: 3,
+                },
+                {
+                  nodes: 3,
+                },
+                {
+                  nodes: 1,
+                },
+              ]}
+            />
+          ),
         },
         {
           text: (
@@ -514,12 +560,67 @@ function TutorialNN({ onClose }) {
               Neuronen - für jede Kategorie eine - die jeweils einen Wert von 0
               bis 1 ausgeben. Ein Wert von 0.73 bedeutet dabei so viel wie “Ich
               bin mir zu 73% sicher, dass auf dem Bild eine Katze zu sehen ist.”
-              <div>Upload Buttons</div>
+              <div className="flex-wrapper" style={{ marginTop: 175 }}>
+                <FileInput
+                  text="Bild hochladen"
+                  onChange={(event) => {
+                    const file = event.target.files[0];
+
+                    if (!file) return;
+
+                    setSelectedFile(file);
+                    setIsFilePicked(true);
+
+                    // Convert selected file to data URL
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                      setImageSrc(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                  }}
+                />
+                <Button
+                  text="Vorhersage"
+                  onClick={async () => {
+                    const formData = new FormData();
+
+                    formData.append("File", selectedFile);
+
+                    const _predictions = await fetch(
+                      "http://localhost:5000/classify",
+                      {
+                        method: "POST",
+                        body: formData,
+                      }
+                    ).then((response) => response.json());
+
+                    setPredictions(_predictions);
+                  }}
+                ></Button>
+              </div>
             </>
+          ),
+          visual: (
+            <div className="flex-wrapper" style={{ height: "100%" }}>
+              {isFilePicked && imageSrc && (
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img src={imageSrc} />
+              )}
+              <div className="prediction-wrapper">
+                <div className="prediction-item">
+                  {DOG_ICON}
+                  <div>{predictions["dog"].toFixed(2)}</div>
+                </div>
+                <div className="prediction-item">
+                  {CAT_ICON}
+                  <div>{predictions["cat"].toFixed(2)}</div>
+                </div>
+              </div>
+            </div>
           ),
         },
       ],
-    },
+    }, // INPUT/OUTPUT NN
     {
       title: "HYPERPARAMETER",
       pages: [
@@ -561,6 +662,16 @@ function TutorialNN({ onClose }) {
               </ol>
             </>
           ),
+          visual: (
+            <PhysicsSim width={800} height={400} spawnAutomatically={true}>
+              <ErrorCurve
+                width={800}
+                height={400}
+                values={getFullValues()}
+                isAnimationActive={false}
+              />
+            </PhysicsSim>
+          ),
         },
         {
           text: (
@@ -591,7 +702,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    },
+    }, // DONE
   ];
 
   return <TutorialLayout sections={sections} onClose={onClose} />;
