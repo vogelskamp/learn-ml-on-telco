@@ -8,12 +8,14 @@ class PhysicsSim extends Component {
   width;
   height;
   world;
+  spawnAutomatically;
 
-  constructor({ children, width, height }) {
+  constructor({ children, width, height, spawnAutomatically = false }) {
     super();
     this.children = children;
     this.width = width;
     this.height = height;
+    this.spawnAutomatically = spawnAutomatically;
   }
 
   componentDidUpdate(prevProps) {
@@ -92,6 +94,8 @@ class PhysicsSim extends Component {
 
     Render.run(render);
     Runner.run(engine);
+
+    if (this.spawnAutomatically) this.spawnObject();
   }
 
   render() {
