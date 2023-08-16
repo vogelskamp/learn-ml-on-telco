@@ -1,10 +1,10 @@
 import MLApplication from "../components/MLApplication";
-import SentimentListItem from "../components/TabularListItem";
 import TutorialSection from "../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import SpamSMSCode from "!!raw-loader!../tutorial-code/SpamSMS.py";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./SpamSMS.scss";
+import SpamSMSList from "./SpamSMSList";
 
 function SpamSMS({ onClose }) {
   return (
@@ -18,19 +18,6 @@ function SpamSMS({ onClose }) {
 }
 
 function getExample() {
-  const items = [
-    {
-      from: "+4917632743005",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat ex at metus fermentum, at semper enim scelerisque. Nullam non elit laoreet, tincidunt nisi nec, ultrices dui. Integer condimentum augue ligula, congue dignissim mi convallis lacinia. Mauris vel aliquam magna, ut tempus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin mattis consectetur tincidunt. Pellentesque metus ante, interdum non nisi nec, placerat tincidunt velit.",
-      class: "SPAM",
-    },
-    {
-      from: "1234",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat ex at metus fermentum, at semper enim scelerisque. Nullam non elit laoreet, tincidunt nisi nec, ultrices dui. Integer condimentum augue ligula, congue dignissim mi convallis lacinia. Mauris vel aliquam magna, ut tempus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin mattis consectetur tincidunt. Pellentesque metus ante, interdum non nisi nec, placerat tincidunt velit.",
-      class: "HAM",
-    },
-  ];
-
   const { REACT_APP_SMS_PHONENUMBER: SMS_PHONENUMBER = "" } = process.env;
   return (
     <div>
@@ -39,32 +26,7 @@ function getExample() {
         <br />
         <div className="strong">{SMS_PHONENUMBER}</div>
       </div>
-      <div className="content-list">
-        {items.map((item) => (
-          <SentimentListItem
-            items={[
-              {
-                header: "Absender",
-                textAlign: "left",
-                value: item.from,
-                percentage: 20,
-              },
-              {
-                header: "Text",
-                textAlign: "left",
-                value: item.text,
-                percentage: 60,
-              },
-              {
-                header: "Klassifizierung",
-                textAlign: "right",
-                value: item.class,
-                percentage: 20,
-              },
-            ]}
-          />
-        ))}
-      </div>
+      <SpamSMSList />
     </div>
   );
 }

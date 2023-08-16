@@ -1,10 +1,10 @@
 import MLApplication from "../components/MLApplication";
-import SentimentListItem from "../components/TabularListItem";
 import TutorialSection from "../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import SentimentAnalysisCode from "!!raw-loader!../tutorial-code/SentimentAnalysis.py";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./SentimentAnalysis.scss";
+import SentimentAnalysisList from "./SentimentAnalysisList";
 
 function SentimentAnalysis({ onClose }) {
   return (
@@ -18,22 +18,8 @@ function SentimentAnalysis({ onClose }) {
 }
 
 function getExample() {
-  const items = [
-    {
-      from: "+4917632743005",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat ex at metus fermentum, at semper enim scelerisque. Nullam non elit laoreet, tincidunt nisi nec, ultrices dui. Integer condimentum augue ligula, congue dignissim mi convallis lacinia. Mauris vel aliquam magna, ut tempus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin mattis consectetur tincidunt. Pellentesque metus ante, interdum non nisi nec, placerat tincidunt velit.",
-      emoji: "😡",
-      score: "0.997123123",
-    },
-    {
-      from: "1234",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat ex at metus fermentum, at semper enim scelerisque. Nullam non elit laoreet, tincidunt nisi nec, ultrices dui. Integer condimentum augue ligula, congue dignissim mi convallis lacinia. Mauris vel aliquam magna, ut tempus lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin mattis consectetur tincidunt. Pellentesque metus ante, interdum non nisi nec, placerat tincidunt velit.",
-      emoji: "😡",
-      score: "0.997123123",
-    },
-  ];
-
   const { REACT_APP_SMS_PHONENUMBER: SMS_PHONENUMBER = "" } = process.env;
+
   return (
     <div>
       <div className="SA_try-it-out">
@@ -41,38 +27,7 @@ function getExample() {
         <br />
         <div className="strong">{SMS_PHONENUMBER}</div>
       </div>
-      <div className="content-list">
-        {items.map((item) => (
-          <SentimentListItem
-            items={[
-              {
-                header: "Absender",
-                textAlign: "left",
-                value: item.from,
-                percentage: 20,
-              },
-              {
-                header: "Text",
-                textAlign: "left",
-                value: item.text,
-                percentage: 60,
-              },
-              {
-                header: "Sentiment",
-                textAlign: "center",
-                value: item.emoji,
-                percentage: 10,
-              },
-              {
-                header: "Score",
-                textAlign: "right",
-                value: Math.round(item.score * 100) / 100,
-                percentage: 10,
-              },
-            ]}
-          />
-        ))}
-      </div>
+      <SentimentAnalysisList />
     </div>
   );
 }
