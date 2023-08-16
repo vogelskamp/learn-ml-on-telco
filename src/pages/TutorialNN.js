@@ -288,7 +288,7 @@ function TutorialNN({ onClose }) {
               Raten am besten. Stell dir jetzt vor, wir raten mit einem
               Multiplikator von <b>α = 0.25</b> und platzieren auf dem Graphen
               einen Ball.
-              <div className="flex-wrapper" style={{ marginTop: 175 }}>
+              <div className="flex-wrapper" style={{ marginTop: 100 }}>
                 <Button
                   text="Ball platzieren"
                   onClick={() => {
@@ -356,14 +356,19 @@ function TutorialNN({ onClose }) {
               Hügellandschaft mit Tälern bei den niedrigen Fehlerraten.
               <br />
               <br />
-              An dieser Stelle lässt sich etwas wichtiges erkennen: es kann
+              An dieser Stelle lässt sich auch etwas wichtiges erkennen: es kann
               mehrere Lösungen für das gleiche Verhalten geben. Bei ML fängt das
               Training an einer <b>zufälligen</b> Stelle an und arbeitet sich zu
-              einem
-              <b>lokalen Tief</b> hervor. Das garantiert jedoch nicht, dass es
-              keine andere Konfiguration von Parametern gibt, die eine
+              einem <b>lokalen Tief</b> hervor. Das garantiert jedoch nicht,
+              dass es keine andere Konfiguration von Parametern gibt, die eine
               niedrigere Fehlerrate produziert.
             </>
+          ),
+          visual: (
+            <img
+              src={require("../assets/gradient_descent3d.png")}
+              alt="Eine 3D Landschaft mit Pfeil als Visualisierung von Gradient Descent bei 2 Parametern"
+            />
           ),
         },
         {
@@ -482,20 +487,24 @@ function TutorialNN({ onClose }) {
           ),
           visual: (
             <AnimatedNetwork
-              layers={[
-                {
-                  nodes: 2,
-                },
-                {
-                  nodes: 3,
-                },
-                {
-                  nodes: 3,
-                },
-                {
-                  nodes: 1,
-                },
-              ]}
+              data={{
+                input: [5, 10],
+                output: [50],
+                layers: [
+                  {
+                    nodes: 2,
+                  },
+                  {
+                    nodes: 3,
+                  },
+                  {
+                    nodes: 3,
+                  },
+                  {
+                    nodes: 1,
+                  },
+                ],
+              }}
             />
           ),
         },
@@ -533,20 +542,24 @@ function TutorialNN({ onClose }) {
           visual: (
             <AnimatedNetwork
               animate={false}
-              layers={[
-                {
-                  nodes: 2,
-                },
-                {
-                  nodes: 3,
-                },
-                {
-                  nodes: 3,
-                },
-                {
-                  nodes: 1,
-                },
-              ]}
+              data={{
+                input: [5, 10],
+                output: [50],
+                layers: [
+                  {
+                    nodes: 2,
+                  },
+                  {
+                    nodes: 3,
+                  },
+                  {
+                    nodes: 3,
+                  },
+                  {
+                    nodes: 1,
+                  },
+                ],
+              }}
             />
           ),
         },
@@ -560,7 +573,7 @@ function TutorialNN({ onClose }) {
               Neuronen - für jede Kategorie eine - die jeweils einen Wert von 0
               bis 1 ausgeben. Ein Wert von 0.73 bedeutet dabei so viel wie “Ich
               bin mir zu 73% sicher, dass auf dem Bild eine Katze zu sehen ist.”
-              <div className="flex-wrapper" style={{ marginTop: 175 }}>
+              <div className="flex-wrapper" style={{ marginTop: 100 }}>
                 <FileInput
                   text="Bild hochladen"
                   onChange={(event) => {

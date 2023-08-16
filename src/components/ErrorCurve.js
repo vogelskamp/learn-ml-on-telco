@@ -6,7 +6,7 @@ function ErrorCurve({ width, height, values, isAnimationActive = true }) {
       width={width}
       height={height}
       data={values}
-      margin={{ top: 20, bottom: 20, left: 10, right: 10 }}
+      margin={{ top: 20, bottom: 20, left: 20, right: 20 }}
     >
       <Line
         type="monotone"
