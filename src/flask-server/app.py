@@ -15,7 +15,7 @@ def getSentimentAnalysis(text):
     return getSentiment(text)
 
 @app.route("/spam/<text>")
-def classifySpam(text):
+def spam(text):
     return classifySpam(text)
 
 @app.route("/transcribe")
