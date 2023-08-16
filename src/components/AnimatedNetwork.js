@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-function AnimatedNetwork({ layers, animate = true }) {
+function AnimatedNetwork({ data, animate = true }) {
   const ref = useRef(null);
   const [context, setContext] = useState(null);
   const [isDone, setDone] = useState(false);
@@ -14,6 +14,9 @@ function AnimatedNetwork({ layers, animate = true }) {
   }, []);
 
   useEffect(() => {
+    const { layers, input, output } = data;
+
+    const initial_XOffset = 100;
     const framesPerNode = 15;
     const pauseFrames = 10;
     const maxNodeRadius = 20;
@@ -41,9 +44,10 @@ function AnimatedNetwork({ layers, animate = true }) {
       context.closePath();
     };
 
-    const drawText = (text, x, y, opacity) => {
+    const drawText = (text, x, y, opacity = 1) => {
       context.font = "24px Arial"; // Set the font size and family
       context.textAlign = "center"; // Align the text horizontally to the center
+      context.textBaseline = "middle";
 
       context.fillStyle = `rgba(170,170,170,${opacity})`;
       context.fillText(text, x, y);
@@ -52,7 +56,7 @@ function AnimatedNetwork({ layers, animate = true }) {
     const draw = (frame) => {
       const { width, height } = context.canvas;
 
-      const xStep = width / layers.length;
+      const xStep = (width - initial_XOffset * 2) / (layers.length - 1);
       const yPadding = 20;
       const textMargin = 50;
 
@@ -74,7 +78,7 @@ function AnimatedNetwork({ layers, animate = true }) {
         }
       }
 
-      let xOffset = 100;
+      let xOffset = initial_XOffset;
 
       const calcYOffset = (nodes) =>
         (height - nodes * 2 * maxNodeRadius - (nodes - 1) * yPadding) / 2;
@@ -166,7 +170,7 @@ function AnimatedNetwork({ layers, animate = true }) {
         let processedLineFrames = 0;
         const lineFrame = frame - totalFramesForNodes;
 
-        xOffset = 100;
+        xOffset = initial_XOffset;
 
         for (
           let layerIdx = 0;
@@ -236,7 +240,35 @@ function AnimatedNetwork({ layers, animate = true }) {
         }
       }
 
-      setDone(true);
+      xOffset = initial_XOffset - 50;
+      let yOffset = calcYOffset(layers.at(0).nodes);
+
+      // start reduce at -last nodes because they dont cause wait for lines
+      const opacity = Math.min(
+        (frame -
+          layers.reduce(
+            (prev, cur) => (prev += cur.nodes),
+            -layers.at(-1).nodes
+          ) *
+            (totalFramesPerNode + totalFramesPerLine)) /
+          (totalFramesPerNode + totalFramesPerLine),
+        1
+      );
+
+      for (const [idx, value] of input.entries()) {
+        const y = calcY(idx, yOffset);
+        drawText(value, xOffset, y, opacity);
+      }
+
+      xOffset = initial_XOffset + (layers.length - 1) * xStep + 50;
+      yOffset = calcYOffset(layers.at(-1).nodes);
+
+      for (const [idx, value] of output.entries()) {
+        const y = calcY(idx, yOffset);
+        drawText(value, xOffset, y, opacity);
+      }
+
+      setDone(opacity === 1);
     };
 
     let frameCount = 0;
@@ -255,7 +287,7 @@ function AnimatedNetwork({ layers, animate = true }) {
     return () => {
       window.cancelAnimationFrame(animationFrameId);
     };
-  }, [isDone, context, layers, animate]);
+  }, [isDone, context, data, animate]);
 
   return <canvas width={800} height={400} ref={ref}></canvas>;
 }
