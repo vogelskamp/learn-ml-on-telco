@@ -18,13 +18,12 @@ def getSentimentAnalysis(text):
 def spam(text):
     return classifySpam(text)
 
-@app.route("/transcribe")
+@app.route("/transcribe", methods=["POST"])
 def transcribeAudio():
-    print(request)
     if len(request.files) != 1:
         raise Exception("Invalid request", "request.files was empty")
     
-    return getTranscription(request.files[0])
+    return getTranscription(request.files['File'])
 
 @app.route("/classify", methods=["POST"])
 def classifyPet():

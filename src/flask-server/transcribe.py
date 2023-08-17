@@ -1,4 +1,7 @@
+import io
+
 import librosa
+import soundfile as sf
 from transformers import WhisperForConditionalGeneration, WhisperProcessor
 
 TARGET_SR = 16000
@@ -9,7 +12,11 @@ model.config.forced_decoder_ids = processor.get_decoder_prompt_ids(
     language="german", task="transcribe")
 
 def getTranscription(file):
-    data, sr = librosa.load(file)
+    tmp = io.BytesIO(file.read())
+    tmp.name = file.filename
+
+    data, sr = sf.read(tmp)
+
     if sr != TARGET_SR:
         data = librosa.resample(y=data, orig_sr=sr, target_sr=TARGET_SR)
 
