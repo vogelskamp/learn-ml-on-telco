@@ -3,6 +3,8 @@ import MLApplication from "../components/MLApplication";
 import TutorialSection from "../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import AudioTranscriptionCode from "!!raw-loader!../tutorial-code/AudioTranscription.py";
+import { useState } from "react";
+import FileInput from "../components/FileInput";
 import PythonHighlighter from "../components/PythonHighlighter";
 import "./AudioTranscription.scss";
 
@@ -37,33 +39,46 @@ function AudioTranscription({ onClose }) {
   return (
     <MLApplication
       title={"TRANSKRIBIERUNG VON ANRUFEN"}
-      example={getExample()}
+      example={GetExample()}
       tutorial={getTutorial()}
       onClose={onClose}
     />
   );
 }
 
-function getExample() {
+function GetExample() {
+  const [text, setText] = useState("");
   return (
     <>
       <div className="AT_try-it-out">
-        <Button text="Audio hochladen" />
+        <FileInput
+          text="Audio hochladen"
+          onChange={async (event) => {
+            const file = event.target.files[0];
+
+            if (!file) return;
+
+            const formData = new FormData();
+
+            formData.append("File", file);
+
+            const transcription = await fetch(
+              "http://localhost:5000/transcribe",
+              {
+                method: "POST",
+                body: formData,
+              }
+            ).then((response) => response.json());
+
+            setText(transcription);
+          }}
+        />
         oder
         <Button text="aufnehmen" icon={mic_icon} />
       </div>
-      <div className="content-area">
+      <div className="transcript-area">
         <div className="strong">TRANSKRIPT</div>
-        <div className="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat
-          ex at metus fermentum, at semper enim scelerisque. Nullam non elit
-          laoreet, tincidunt nisi nec, ultrices dui. Integer condimentum augue
-          ligula, congue dignissim mi convallis lacinia. Mauris vel aliquam
-          magna, ut tempus lacus. Pellentesque habitant morbi tristique senectus
-          et netus et malesuada fames ac turpis egestas. Proin mattis
-          consectetur tincidunt. Pellentesque metus ante, interdum non nisi nec,
-          placerat tincidunt velit.
-        </div>
+        <div className="content">{text}</div>
       </div>
     </>
   );

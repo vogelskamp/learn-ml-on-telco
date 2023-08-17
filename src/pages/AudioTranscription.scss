@@ -1,27 +1,33 @@
 .AT_try-it-out {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    padding: 66px 0;
+  padding: 66px 0;
 
-    button {
-        margin: 0px 20px;
-    }
+  button,
+  label {
+    margin: 0px 20px;
+  }
 }
 
-.content-area {
-    flex: 1;
-    background-color: #FAFAFA;
-    padding: 33px;
+.transcript-area {
+  flex: 1;
+  background-color: #fafafa;
+  padding: 33px;
 
-    font-size: 24px;
-    font-weight: 200;
-    
-    .strong {
-        font-size: 30px;
-        font-weight: 400;
+  font-size: 24px;
+  font-weight: 200;
 
-        margin-bottom: 14px;
-    }
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .strong {
+    font-size: 30px;
+    font-weight: 400;
+
+    margin-bottom: 14px;
+  }
 }
