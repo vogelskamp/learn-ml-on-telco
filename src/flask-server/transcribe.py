@@ -12,6 +12,7 @@ model.config.forced_decoder_ids = processor.get_decoder_prompt_ids(
     language="german", task="transcribe")
 
 def getTranscription(file):
+
     tmp = io.BytesIO(file.read())
     tmp.name = file.filename
 
@@ -23,6 +24,6 @@ def getTranscription(file):
     input_features = processor(
         data, sampling_rate=TARGET_SR, return_tensors="pt").input_features
 
-    predicted_ids = model.generate(input_features)
+    predicted_ids = model.generate(input_features, max_length=60)
 
     return processor.batch_decode(predicted_ids, skip_special_tokens=True)
