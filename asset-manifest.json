@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/learn-ml-on-telco/static/css/main.60bc4ce6.css",
+    "main.js": "/learn-ml-on-telco/static/js/main.970f057b.js",
+    "static/media/huggingface_tasks.png": "/learn-ml-on-telco/static/media/huggingface_tasks.3e0a77f523078950925f.png",
+    "static/media/regression_model.png": "/learn-ml-on-telco/static/media/regression_model.621901de259a4c4db159.png",
+    "static/media/model accuracy.png": "/learn-ml-on-telco/static/media/model accuracy.7dc11661db6395e126ba.png",
+    "static/media/huggingface.png": "/learn-ml-on-telco/static/media/huggingface.a2b54cac5cf5b6dc97cd.png",
+    "static/media/gradient_descent3d.png": "/learn-ml-on-telco/static/media/gradient_descent3d.8aecc5c2d6c9b4af69c6.png",
+    "static/media/transformer_attention.png": "/learn-ml-on-telco/static/media/transformer_attention.a584400fa46cc0ac1fda.png",
+    "static/media/Funktionen6.png": "/learn-ml-on-telco/static/media/Funktionen6.974e375bcb404803f34a.png",
+    "static/media/hsd_medien.png": "/learn-ml-on-telco/static/media/hsd_medien.7b49990afceca554abe2.png",
+    "static/media/Funktionen4.png": "/learn-ml-on-telco/static/media/Funktionen4.428c2778cffa70bbf8f4.png",
+    "static/media/Funktionen5.png": "/learn-ml-on-telco/static/media/Funktionen5.0654633e59550251b315.png",
+    "static/media/Funktionen3.png": "/learn-ml-on-telco/static/media/Funktionen3.6e68984cf20fd5e359ab.png",
+    "static/media/Funktionen.png": "/learn-ml-on-telco/static/media/Funktionen.7db61112ae087d64437f.png",
+    "static/media/Funktionen2.png": "/learn-ml-on-telco/static/media/Funktionen2.1a344f907fced3cc6be3.png",
+    "static/media/formel.png": "/learn-ml-on-telco/static/media/formel.3854f94ba5b3c24d15d7.png",
+    "static/media/sipgate_logo.png": "/learn-ml-on-telco/static/media/sipgate_logo.e78342b7c52d47781994.png",
+    "index.html": "/learn-ml-on-telco/index.html",
+    "main.60bc4ce6.css.map": "/learn-ml-on-telco/static/css/main.60bc4ce6.css.map",
+    "main.970f057b.js.map": "/learn-ml-on-telco/static/js/main.970f057b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60bc4ce6.css",
+    "static/js/main.970f057b.js"
+  ]
+}
