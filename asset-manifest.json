@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/learn-ml-on-telco/static/css/main.60bc4ce6.css",
+    "main.css": "/learn-ml-on-telco/static/css/main.ebfdb3a2.css",
     "main.js": "/learn-ml-on-telco/static/js/main.970f057b.js",
     "static/media/huggingface_tasks.png": "/learn-ml-on-telco/static/media/huggingface_tasks.3e0a77f523078950925f.png",
     "static/media/regression_model.png": "/learn-ml-on-telco/static/media/regression_model.621901de259a4c4db159.png",
@@ -18,11 +18,11 @@
     "static/media/formel.png": "/learn-ml-on-telco/static/media/formel.3854f94ba5b3c24d15d7.png",
     "static/media/sipgate_logo.png": "/learn-ml-on-telco/static/media/sipgate_logo.e78342b7c52d47781994.png",
     "index.html": "/learn-ml-on-telco/index.html",
-    "main.60bc4ce6.css.map": "/learn-ml-on-telco/static/css/main.60bc4ce6.css.map",
+    "main.ebfdb3a2.css.map": "/learn-ml-on-telco/static/css/main.ebfdb3a2.css.map",
     "main.970f057b.js.map": "/learn-ml-on-telco/static/js/main.970f057b.js.map"
   },
   "entrypoints": [
-    "static/css/main.60bc4ce6.css",
+    "static/css/main.ebfdb3a2.css",
     "static/js/main.970f057b.js"
   ]
 }
