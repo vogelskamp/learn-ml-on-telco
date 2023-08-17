@@ -1,4 +1,5 @@
 {
+  "homepage": "https://vogelskamp.github.io/learn-ml-on-telco",
   "name": "learn-ml-on-telco",
   "version": "0.1.0",
   "private": true,
@@ -76,7 +77,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "flask": "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python python3.9 -m flask --app ./src/flask-server/app.py run",
-    "io": "node ./src/sipgateio-server/SMSListenServer.js"
+    "io": "node ./src/sipgateio-server/SMSListenServer.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -153,6 +156,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.0.0"
   }
 }
