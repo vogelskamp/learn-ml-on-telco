@@ -27,10 +27,13 @@ function GetExample() {
 
     formData.append("File", file);
 
-    const transcription = await fetch("http://localhost:5000/transcribe", {
-      method: "POST",
-      body: formData,
-    }).then((response) => response.json());
+    const transcription = await fetch(
+      `https://learn-ml.sipgate.cloud:443/flask/transcribe`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    ).then((response) => response.json());
 
     setText(transcription);
   };
@@ -74,16 +77,16 @@ function getTutorial() {
     codeLines[0],
     codeLines[3],
     "",
-    codeLines[11].trim(),
-    `${codeLines[12].trim()} ${codeLines[13].trim()}`,
+    codeLines[10].trim(),
+    `${codeLines[11].trim()} ${codeLines[12].trim()}`,
   ].join("\n");
 
   const fourthCodeBlock = [
-    codeLines[15].trim() + codeLines[16].trim(),
+    codeLines[14].trim() + codeLines[15].trim(),
     "",
-    codeLines[18].trim(),
+    codeLines[17].trim(),
     "",
-    codeLines[20].split("return")[1].trim(),
+    codeLines[19].split("return")[1].trim(),
   ].join("\n");
 
   return (
@@ -136,7 +139,7 @@ function getTutorial() {
           </>
         }
       >
-        <PythonHighlighter>{fourthCodeBlock}</PythonHighlighter>
+        <PythonHighlighter startLine={11}>{fourthCodeBlock}</PythonHighlighter>
       </TutorialSection>
     </div>
   );

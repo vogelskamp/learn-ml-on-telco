@@ -600,7 +600,7 @@ function TutorialNN({ onClose }) {
                     formData.append("File", selectedFile);
 
                     const _predictions = await fetch(
-                      "http://localhost:5000/classify",
+                      `https://learn-ml.sipgate.cloud:443/flask/classify`,
                       {
                         method: "POST",
                         body: formData,

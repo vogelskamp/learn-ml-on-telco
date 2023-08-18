@@ -11,7 +11,7 @@ function SpamSMSList() {
         const { source, smsContent } = message;
 
         const { prediction } = await fetch(
-          `http://localhost:5000/spam/${smsContent}`
+          `https://learn-ml.sipgate.cloud:443/flask/spam/${smsContent}`
         ).then((response) => response.json());
 
         setItems([

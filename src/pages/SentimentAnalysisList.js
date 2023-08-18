@@ -11,7 +11,7 @@ function SentimentAnalysisList() {
         const { source, smsContent } = message;
 
         const { emoji, score } = await fetch(
-          `http://localhost:5000/sentiment/${smsContent}`
+          `https://learn-ml.sipgate.cloud:443/flask/sentiment/${smsContent}`
         ).then((response) => response.json());
 
         console.log(score);
