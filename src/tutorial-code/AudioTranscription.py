@@ -5,8 +5,7 @@ TARGET_SR = 16000
 
 processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
 model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny")
-model.config.forced_decoder_ids = processor.get_decoder_prompt_ids(
-    language="german", task="transcribe")
+model.config.forced_decoder_ids = processor.get_decoder_prompt_ids(language="german", task="transcribe")
 
 def getTranscription(file):
     data, sr = librosa.load(file)

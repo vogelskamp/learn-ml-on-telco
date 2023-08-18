@@ -36,7 +36,6 @@ function RegressionModel({ onClose }) {
 }
 
 function getExample() {
-  console.log({ callData, predictedData });
   return (
     <div className="content-area">
       <ScatterChart

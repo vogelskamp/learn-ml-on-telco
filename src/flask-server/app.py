@@ -33,3 +33,6 @@ def classifyPet():
 
     image = request.files['File']
     return classifyImage(Image.open(image).convert("RGB"))
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")
