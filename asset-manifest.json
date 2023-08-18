@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/learn-ml-on-telco/static/css/main.071fe8e5.css",
-    "main.js": "/learn-ml-on-telco/static/js/main.7d8ec809.js",
+    "main.css": "/learn-ml-on-telco/static/css/main.2bcd7eaa.css",
+    "main.js": "/learn-ml-on-telco/static/js/main.7747e7aa.js",
     "static/media/huggingface_tasks.png": "/learn-ml-on-telco/static/media/huggingface_tasks.3e0a77f523078950925f.png",
     "static/media/regression_model.png": "/learn-ml-on-telco/static/media/regression_model.621901de259a4c4db159.png",
     "static/media/model accuracy.png": "/learn-ml-on-telco/static/media/model accuracy.7dc11661db6395e126ba.png",
     "static/media/huggingface.png": "/learn-ml-on-telco/static/media/huggingface.a2b54cac5cf5b6dc97cd.png",
     "static/media/gradient_descent3d.png": "/learn-ml-on-telco/static/media/gradient_descent3d.8aecc5c2d6c9b4af69c6.png",
+    "static/media/Funktionen7.png": "/learn-ml-on-telco/static/media/Funktionen7.6c9327e620f1a2d25df8.png",
     "static/media/transformer_attention.png": "/learn-ml-on-telco/static/media/transformer_attention.a584400fa46cc0ac1fda.png",
     "static/media/Funktionen6.png": "/learn-ml-on-telco/static/media/Funktionen6.974e375bcb404803f34a.png",
     "static/media/hsd_medien.png": "/learn-ml-on-telco/static/media/hsd_medien.7b49990afceca554abe2.png",
@@ -18,11 +19,11 @@
     "static/media/formel.png": "/learn-ml-on-telco/static/media/formel.3854f94ba5b3c24d15d7.png",
     "static/media/sipgate_logo.png": "/learn-ml-on-telco/static/media/sipgate_logo.e78342b7c52d47781994.png",
     "index.html": "/learn-ml-on-telco/index.html",
-    "main.071fe8e5.css.map": "/learn-ml-on-telco/static/css/main.071fe8e5.css.map",
-    "main.7d8ec809.js.map": "/learn-ml-on-telco/static/js/main.7d8ec809.js.map"
+    "main.2bcd7eaa.css.map": "/learn-ml-on-telco/static/css/main.2bcd7eaa.css.map",
+    "main.7747e7aa.js.map": "/learn-ml-on-telco/static/js/main.7747e7aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.071fe8e5.css",
-    "static/js/main.7d8ec809.js"
+    "static/css/main.2bcd7eaa.css",
+    "static/js/main.7747e7aa.js"
   ]
 }
