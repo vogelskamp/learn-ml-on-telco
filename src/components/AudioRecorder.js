@@ -28,7 +28,7 @@ function AudioRecorder({ onFinishRecording }) {
 
   const stopRecording = () => {
     setIsRecording(false);
-    //stops the recording instance
+
     mediaRecorder.current.stopRecording(async function () {
       const blob = mediaRecorder.current.getBlob();
 

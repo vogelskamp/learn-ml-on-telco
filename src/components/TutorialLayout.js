@@ -13,6 +13,9 @@ function TutorialLayout({ sections, onClose }) {
     pageIdx < pages.length - 1 || sectionIdx < sections.length - 1;
   const hasPrev = pageIdx > 0 || sectionIdx > 0;
 
+  const isLast =
+    pageIdx === pages.length - 1 && sectionIdx === sections.length - 1;
+
   return (
     <div className="basic-tutorial">
       <div id="close-button" onClick={onClose}>
@@ -61,17 +64,19 @@ function TutorialLayout({ sections, onClose }) {
           Zurück
         </div>
         <div
-          className={`next-button ${hasNext ? "active" : ""}`}
+          className={`next-button ${hasNext || isLast ? "active" : ""}`}
           onClick={() => {
             if (hasNext) {
               if (pageIdx === pages.length - 1) {
                 setSectionIdx(sectionIdx + 1);
                 setPageIdx(0);
               } else setPageIdx(pageIdx + 1);
+            } else if (isLast) {
+              onClose();
             }
           }}
         >
-          Weiter
+          {isLast ? "Home" : "Weiter"}
         </div>
       </div>
     </div>

@@ -27,7 +27,6 @@ def transcribeAudio():
 
 @app.route("/classify", methods=["POST"])
 def classifyPet():
-    print(request)
     if len(request.files) != 1:
         raise Exception("Invalid request", "request.files was empty")
 
