@@ -1,12 +1,12 @@
-import CodePhrase from "../components/CodePhrase";
-import TutorialLayout from "../components/TutorialLayout";
+import CodePhrase from "../../components/CodePhrase";
+import TutorialLayout from "../../components/TutorialLayout";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import TrainCode from "!!raw-loader!../tutorial-code/FineTuning.train.py";
+import TrainCode from "!!raw-loader!../../tutorial-code/FineTuning.train.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import LoadCode from "!!raw-loader!../tutorial-code/FineTuning.load.py";
+import LoadCode from "!!raw-loader!../../tutorial-code/FineTuning.load.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import MiniCode from "!!raw-loader!../tutorial-code/SentimentAnalysis.mini.py";
-import PythonHighlighter from "../components/PythonHighlighter";
+import MiniCode from "!!raw-loader!../../tutorial-code/SentimentAnalysis.mini.py";
+import PythonHighlighter from "../../components/PythonHighlighter";
 import "./TutorialHug.scss";
 
 const codeLines = TrainCode.split("\n");
@@ -59,7 +59,7 @@ const sections = [
         ),
         visual: (
           <img
-            src={require("../assets/huggingface.png")}
+            src={require("../../assets/huggingface.png")}
             alt="Huggingface Logo"
           />
         ),
@@ -67,7 +67,7 @@ const sections = [
     ],
   },
   {
-    title: "PIPELINE API",
+    title: "TRANSFORMERS LIBRARY",
     pages: [
       {
         text: (
@@ -82,7 +82,7 @@ const sections = [
         ),
         visual: (
           <img
-            src={require("../assets/huggingface_tasks.png")}
+            src={require("../../assets/huggingface_tasks.png")}
             alt="Huggingface Tasks"
           />
         ),

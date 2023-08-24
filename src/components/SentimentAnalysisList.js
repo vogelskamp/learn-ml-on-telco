@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SentimentListItem from "../components/TabularListItem";
 import { fetchAndProcessSMS } from "../utils/process-sms";
+import SentimentListItem from "./TabularListItem";
 
 function SentimentAnalysisList() {
   const [items, setItems] = useState([]);
@@ -11,6 +11,7 @@ function SentimentAnalysisList() {
         const { source, smsContent } = message;
 
         const { emoji, score } = await fetch(
+          // `http://localhost:5000/sentiment/${smsContent}`
           `https://learn-ml.sipgate.cloud:443/flask/sentiment/${smsContent}`
         ).then((response) => response.json());
 
@@ -45,13 +46,13 @@ function SentimentAnalysisList() {
               header: "Text",
               textAlign: "left",
               value: item.text,
-              percentage: 60,
+              percentage: 55,
             },
             {
               header: "Sentiment",
               textAlign: "center",
               value: item.emoji,
-              percentage: 10,
+              percentage: 15,
             },
             {
               header: "Score",

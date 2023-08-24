@@ -8,16 +8,16 @@ import {
   SPAM_ICON,
   TRANSCRIPTION_ICON,
 } from "./graphics";
-import AudioTranscription from "./pages/AudioTranscription";
 import LandingPage from "./pages/LandingPage";
-import RegressionModel from "./pages/RegressionModel";
-import SentimentAnalysis from "./pages/SentimentAnalysis";
-import SpamSMS from "./pages/SpamSMS";
-import TutorialNN from "./pages/TutorialNN";
+import AudioTranscription from "./pages/applications/AudioTranscription";
+import RegressionModel from "./pages/applications/RegressionModel";
+import SentimentAnalysis from "./pages/applications/SentimentAnalysis";
+import SpamSMS from "./pages/applications/SpamSMS";
+import TutorialNN from "./pages/tutorials/TutorialNN";
 
 import "./App.scss";
-import TutorialHug from "./pages/TutorialHug";
-import TutorialNLP from "./pages/TutorialNLP";
+import TutorialHug from "./pages/tutorials/TutorialHug";
+import TutorialNLP from "./pages/tutorials/TutorialNLP";
 
 function App() {
   const [activeElement, setActiveElement] = useState(null);

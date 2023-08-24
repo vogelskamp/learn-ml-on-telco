@@ -1,10 +1,10 @@
-import MLApplication from "../components/MLApplication";
-import TutorialSection from "../components/TutorialSection";
+import MLApplication from "../../components/MLApplication";
+import TutorialSection from "../../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import SentimentAnalysisCode from "!!raw-loader!../tutorial-code/SentimentAnalysis.py";
-import PythonHighlighter from "../components/PythonHighlighter";
+import SentimentAnalysisCode from "!!raw-loader!../../tutorial-code/SentimentAnalysis.py";
+import PythonHighlighter from "../../components/PythonHighlighter";
+import SentimentAnalysisList from "../../components/SentimentAnalysisList";
 import "./SentimentAnalysis.scss";
-import SentimentAnalysisList from "./SentimentAnalysisList";
 
 function SentimentAnalysis({ onClose }) {
   return (

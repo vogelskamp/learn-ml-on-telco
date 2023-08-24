@@ -1,11 +1,11 @@
-import MLApplication from "../components/MLApplication";
-import TutorialSection from "../components/TutorialSection";
+import MLApplication from "../../components/MLApplication";
+import TutorialSection from "../../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import LoadCode from "!!raw-loader!../tutorial-code/Regression.load.py";
+import LoadCode from "!!raw-loader!../../tutorial-code/Regression.load.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import LoopCode from "!!raw-loader!../tutorial-code/Regression.loop.py";
+import LoopCode from "!!raw-loader!../../tutorial-code/Regression.loop.py";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import TrainCode from "!!raw-loader!../tutorial-code/Regression.train.py";
+import TrainCode from "!!raw-loader!../../tutorial-code/Regression.train.py";
 
 import {
   CartesianGrid,
@@ -17,12 +17,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import CodePhrase from "../components/CodePhrase";
-import PythonHighlighter from "../components/PythonHighlighter";
+import CodePhrase from "../../components/CodePhrase";
+import PythonHighlighter from "../../components/PythonHighlighter";
 import "./RegressionModel.scss";
 
-import callData from "../assets/call_cells.json";
-import predictedData from "../assets/predicted_cells.json";
+import callData from "../../assets/call_cells.json";
+import predictedData from "../../assets/predicted_cells.json";
 
 function RegressionModel({ onClose }) {
   return (
@@ -236,7 +236,7 @@ function getTutorial() {
           </div>
           <div className="item">
             <img
-              src={require("../assets/regression_model.png")}
+              src={require("../../assets/regression_model.png")}
               alt="Visualization of the predicted values from the regression model"
             />
           </div>

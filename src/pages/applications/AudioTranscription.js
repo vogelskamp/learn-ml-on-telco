@@ -1,11 +1,11 @@
-import MLApplication from "../components/MLApplication";
-import TutorialSection from "../components/TutorialSection";
+import MLApplication from "../../components/MLApplication";
+import TutorialSection from "../../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import AudioTranscriptionCode from "!!raw-loader!../tutorial-code/AudioTranscription.py";
+import AudioTranscriptionCode from "!!raw-loader!../../tutorial-code/AudioTranscription.py";
 import { useState } from "react";
-import AudioRecorder from "../components/AudioRecorder";
-import FileInput from "../components/FileInput";
-import PythonHighlighter from "../components/PythonHighlighter";
+import AudioRecorder from "../../components/AudioRecorder";
+import FileInput from "../../components/FileInput";
+import PythonHighlighter from "../../components/PythonHighlighter";
 import "./AudioTranscription.scss";
 
 function AudioTranscription({ onClose }) {

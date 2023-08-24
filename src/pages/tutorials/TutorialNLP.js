@@ -1,5 +1,5 @@
-import PythonHighlighter from "../components/PythonHighlighter";
-import TutorialLayout from "../components/TutorialLayout";
+import PythonHighlighter from "../../components/PythonHighlighter";
+import TutorialLayout from "../../components/TutorialLayout";
 
 const code = [
   "tokenizer('gut')     # [101, 18986,   102,   0]",
@@ -77,7 +77,7 @@ const sections = [
         ),
         visual: (
           <img
-            src={require("../assets/transformer_attention.png")}
+            src={require("../../assets/transformer_attention.png")}
             alt="Verbildlichung der Attention von Transformer Modellen"
           />
         ),
@@ -89,7 +89,7 @@ const sections = [
             basieren alle auf dieser Transformer-Architektur. Wenn du schon mal
             etwas von GPT (Generative Pretrained Transformer) oder BERT
             (Bidirectional Encoder Representations Transformer) gehört hast
-            weißst du, wie gut diese Modelle sein können, wenn sie auf riesen
+            weißt du, wie gut diese Modelle sein können, wenn sie auf riesen
             Mengen von Daten trainiert werden.
           </>
         ),

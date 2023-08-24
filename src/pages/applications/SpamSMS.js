@@ -1,10 +1,10 @@
-import MLApplication from "../components/MLApplication";
-import TutorialSection from "../components/TutorialSection";
+import MLApplication from "../../components/MLApplication";
+import TutorialSection from "../../components/TutorialSection";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import SpamSMSCode from "!!raw-loader!../tutorial-code/SpamSMS.py";
-import PythonHighlighter from "../components/PythonHighlighter";
+import SpamSMSCode from "!!raw-loader!../../tutorial-code/SpamSMS.py";
+import PythonHighlighter from "../../components/PythonHighlighter";
+import SpamSMSList from "../../components/SpamSMSList";
 import "./SpamSMS.scss";
-import SpamSMSList from "./SpamSMSList";
 
 function SpamSMS({ onClose }) {
   return (

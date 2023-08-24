@@ -1,16 +1,16 @@
 import { Slider } from "@mui/material";
 import { useState } from "react";
-import TutorialLayout from "../components/TutorialLayout";
+import TutorialLayout from "../../components/TutorialLayout";
 
-import ActivationGraph from "../components/ActivationGraph";
-import Button from "../components/Button";
-import ErrorCurve from "../components/ErrorCurve";
-import PhysicsSim from "../components/PhysicsSim";
+import ActivationGraph from "../../components/ActivationGraph";
+import Button from "../../components/Button";
+import ErrorCurve from "../../components/ErrorCurve";
+import PhysicsSim from "../../components/PhysicsSim";
 import "./TutorialNN.scss";
 
-import AnimatedNetwork from "../components/AnimatedNetwork";
-import FileInput from "../components/FileInput";
-import { BRAIN_LOGO, CAT_ICON, DOG_ICON } from "../graphics";
+import AnimatedNetwork from "../../components/AnimatedNetwork";
+import FileInput from "../../components/FileInput";
+import { BRAIN_LOGO, CAT_ICON, DOG_ICON } from "../../graphics";
 
 function TutorialNN({ onClose }) {
   const [chartValues, setChartValues] = useState([{ xValue: 0, yValue: 16 }]);
@@ -54,7 +54,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen.png")}
+              src={require("../../assets/Funktionen.png")}
               alt="Eingabewerte werden durch Funktionen in Ausgabewerte verwandelt"
             />
           ),
@@ -65,9 +65,8 @@ function TutorialNN({ onClose }) {
               Aber was hat das mit Machine Learning zu tun? Stell dir das
               gleiche Szenario vor wie gerade, nur dass wir jetzt so tun als
               würden wir die <b>Funktion</b> nicht kennen. Alles was wir haben
-              sind unsere
-              <b>Eingabewerte x</b> und <b>Ausgabewerte</b>, die irgendwie mit
-              den Eingaben zusammenhängen.
+              sind unsere <b>Eingabewerte x</b> und <b>Ausgabewerte</b>, die
+              irgendwie mit den Eingaben zusammenhängen.
               <br />
               <br />
               Wir müssen also irgendwie an die Funktion kommen. Das Beispiel ist
@@ -81,7 +80,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen2.png")}
+              src={require("../../assets/Funktionen2.png")}
               alt="Aber was, wenn die Funktion nicht bekannt ist?"
             />
           ),
@@ -108,7 +107,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen2.png")}
+              src={require("../../assets/Funktionen2.png")}
               alt="Aber was, wenn die Funktion nicht bekannt ist?"
             />
           ),
@@ -119,16 +118,17 @@ function TutorialNN({ onClose }) {
               Lass uns das mal beispielsweise durchlaufen:
               <br />
               <br />
-              Wir wissen, dass wir für einen Eingabewert x = 8 einen Ausgabewert
-              von 4 erhalten sollten. Weil wir blöd sind, raten wir jetzt
-              einfach mal, dass die Zahl auf dem Pfeil mal 3 gerechnet wird. Wir
-              probieren es aus und merken, dass unser Ergebnis viel zu groß ist.
+              Wir wissen, dass wir für einen Eingabewert <b>x = 8</b> einen
+              Ausgabewert von <b>4</b> erhalten sollten. Weil wir blöd sind,
+              raten wir jetzt einfach mal, dass die Zahl auf dem Pfeil mal 3
+              gerechnet wird. Wir probieren es aus und merken, dass unser
+              Ergebnis viel zu groß ist.
             </>
           ),
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen3.png")}
+              src={require("../../assets/Funktionen3.png")}
               alt="Beispiel für Eingabewert 8 und Ausgabewert 4 mit Funktion f(x) = x * 3"
             />
           ),
@@ -145,7 +145,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen4.png")}
+              src={require("../../assets/Funktionen4.png")}
               alt="Beispiel für Eingabewert 8 und Ausgabewert 4 mit Funktion f(x) = x * 0.25"
             />
           ),
@@ -168,7 +168,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen"
-              src={require("../assets/Funktionen5.png")}
+              src={require("../../assets/Funktionen5.png")}
               alt="Beispiel für Eingabewert 8 und Ausgabewert 4 mit Funktion f(x) = x * 0.5"
             />
           ),
@@ -189,7 +189,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    }, // DONE
+    },
     {
       title: "FEHLERRATE",
       pages: [
@@ -197,13 +197,15 @@ function TutorialNN({ onClose }) {
           text: (
             <>
               An dieser Stelle sollten wir uns damit beschäftigen, was “Fehler”
-              überhaupt heißt. In unserem Beispiel konnten wir erkennen, dass 2
-              kleiner ist als 4 und wir deswegen höher raten sollten. In
-              komplexen Beispielen ist das jedoch nicht so einfach zu erkennen.
-              Zum Glück gibt tolle mathematische Vorgänge wie Back Propagation
-              und Gradient Descent, die genau das ermöglichen. Die Verfahren
-              sind hohe Mathematik, visuell lässt sich das Ganze jedoch leicht
-              nachvollziehen.
+              überhaupt heißt.
+              <br />
+              <br />
+              In unserem Beispiel konnten wir erkennen, dass 2 kleiner ist als 4
+              und wir deswegen höher raten sollten. In komplexen Beispielen ist
+              das jedoch nicht so einfach zu erkennen. Zum Glück gibt tolle
+              mathematische Vorgänge wie Back Propagation und Gradient Descent,
+              die genau das ermöglichen. Die Verfahren sind hohe Mathematik,
+              visuell lässt sich das Ganze jedoch leicht nachvollziehen.
             </>
           ),
         },
@@ -214,17 +216,19 @@ function TutorialNN({ onClose }) {
               multipliziert, um den Ausgabewert zu erhalten. Diesen
               Multiplikator nennen wir jetzt allgemein <b>α</b>. Den Ausgabewert
               haben wir mit dem uns bekannten Wert verglichen, um unseren Fehler
-              zu erkennen. Wenn wir jetzt wissen wollen, wie falsch wir lagen,
-              müssen wir den Fehler berechnen.
+              zu erkennen. Formell führen wir jetzt eine <b>Fehlerrate</b> ein,
+              die angibt, wie weit wir vom bekannten Wert lagen, also{" "}
+              <u>wie falsch</u> wir lagen.
               <br />
               <br />
-              Lass uns hierfür die folgende Formel verwenden:
+              Lass uns für die Berechnung der Fehlerrate die folgende Formel
+              verwenden:
             </>
           ),
           visual: (
             <img
               className="formel"
-              src={require("../assets/formel.png")}
+              src={require("../../assets/formel.png")}
               alt="Formel zur Berechnung der Fehlerrate: Fehler(xgeraten, xrichtig) = (xrichtig - xgeraten)²"
             />
           ),
@@ -237,7 +241,9 @@ function TutorialNN({ onClose }) {
               <br />
               <br />
               Das alleine sagt uns noch nicht sehr viel. Da das Ergebnis jedoch
-              komplett davon abhängt, welchen Wert unser Multiplikator <b>α</b>
+              komplett davon abhängt, welchen Wert unser Multiplikator <b>
+                α
+              </b>{" "}
               hat, können wir einen Graphen bilden, der uns für einen Wert{" "}
               <b>α</b> einen Fehler gibt.
               <div className="flex-wrapper" style={{ marginTop: "65px" }}>
@@ -286,7 +292,7 @@ function TutorialNN({ onClose }) {
               Wie du sehen kannst, bildet sich um den Wert <b>α = 0.5</b> ein
               Tal. An dieser Stelle ist der Fehler am kleinsten und damit unser
               Raten am besten. Stell dir jetzt vor, wir raten mit einem
-              Multiplikator von <b>α = 0.25</b> und platzieren auf dem Graphen
+              Multiplikator von <b>α = 0.2</b> und platzieren auf dem Graphen
               einen Ball.
               <div className="flex-wrapper" style={{ marginTop: 100 }}>
                 <Button
@@ -318,16 +324,17 @@ function TutorialNN({ onClose }) {
               hinter <b>“Gradient Descent”</b>:
               <br />
               <br />
-              Wir wissen nicht nur dass wir einen Fehler gemacht haben, sondern
-              auch in welche Richtung wir <b>α</b> abändern müssen, um besser zu
-              raten.
+              Wir können nicht lediglich nachvollziehen, wie groß unser Fehler
+              ist, sondern auch in welche Richtung wir <b>α</b> abändern müssen,
+              um besser zu raten.
               <br />
               <br />
-              Wenn wir uns nun schrittweise vortasten und das ganze oft genug
-              machen, landen wir in den meisten Fällen irgendwann an einem
-              Punkt, an dem <b>α</b> ziemlich gut gewählt ist und wir das
-              Verhalten gut modelliert haben. Das ist der Prozess, den man unter
-              dem Training von künstlichen Intelligenzen versteht.
+              Wenn wir uns nach jedem Mal Raten ein Stück Richtung Tal bewegen
+              und das ganze oft genug machen, landen wir in den meisten Fällen
+              irgendwann an einem Punkt, an dem <b>α</b> ziemlich gut gewählt
+              ist und wir das Verhalten gut modelliert haben. Das ist der
+              Prozess, den man unter dem Training von künstlichen Intelligenzen
+              versteht.
             </>
           ),
         },
@@ -335,7 +342,7 @@ function TutorialNN({ onClose }) {
           text: (
             <>
               Unser Beispiel war natürlich sehr minimalistisch. Komplexeres
-              Verhaltenbenötigt komplexere Modelle, also mehr Parameter. Wir
+              Verhalten benötigt komplexere Modelle, also mehr Parameter. Wir
               können in unserem Beispiel einen zweiten Parameter <b>β</b>{" "}
               einführen, indem wir einen Zwischenschritt einbauen.
             </>
@@ -343,7 +350,7 @@ function TutorialNN({ onClose }) {
           visual: (
             <img
               className="funktionen-wide"
-              src={require("../assets/Funktionen6.png")}
+              src={require("../../assets/Funktionen6.png")}
               alt="Eine Funktion mit Zwischenschritt"
             />
           ),
@@ -356,8 +363,8 @@ function TutorialNN({ onClose }) {
               Hügellandschaft mit Tälern bei den niedrigen Fehlerraten.
               <br />
               <br />
-              An dieser Stelle lässt sich auch etwas wichtiges erkennen: es kann
-              mehrere Lösungen für das gleiche Verhalten geben. Bei ML fängt das
+              An der Grafik lässt sich etwas wichtiges erkennen: es kann mehrere
+              Lösungen für das gleiche Verhalten geben. Bei ML fängt das
               Training an einer <b>zufälligen</b> Stelle an und arbeitet sich zu
               einem <b>lokalen Tief</b> hervor. Das garantiert jedoch nicht,
               dass es keine andere Konfiguration von Parametern gibt, die eine
@@ -366,7 +373,7 @@ function TutorialNN({ onClose }) {
           ),
           visual: (
             <img
-              src={require("../assets/gradient_descent3d.png")}
+              src={require("../../assets/gradient_descent3d.png")}
               alt="Eine 3D Landschaft mit Pfeil als Visualisierung von Gradient Descent bei 2 Parametern"
             />
           ),
@@ -394,8 +401,8 @@ function TutorialNN({ onClose }) {
         {
           text: (
             <>
-              An dieser Stelle können wir ganz bewusst die Frage “Was ist ein
-              neuronales Netz” beantworten:
+              Lass uns hier einen Moment Zeit nehmen und ganz bewusst die Frage
+              beantworten <b>“Was ist ein neuronales Netz”</b>:
               <br />
               <br />
               Ein neuronales Netz ist ein mathematisches Konstrukt aus Neuronen
@@ -409,7 +416,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    }, // ALMOST DONE (3D error curve)
+    },
     {
       title: "AKTIVIERUNGSFUNKTIONEN",
       pages: [
@@ -439,9 +446,24 @@ function TutorialNN({ onClose }) {
         {
           text: (
             <>
-              Diese Funktionen werden genutzt, um komplexes und nicht lineares
-              Verhalten zu modellieren. Die Idee dahinter stammt daher, wie
-              unsere eigenen Gehirne funktionieren:
+              Aktivierungsfunktionen kontrollieren also den Datenfluss zwischen
+              den einzelnen Neuronen. Sie werden genutzt, um komplexes und nicht
+              lineares Verhalten zu modellieren.
+            </>
+          ),
+          visual: (
+            <img
+              className="funktionen-wide"
+              src={require("../../assets/Funktionen7.png")}
+              alt="Kontrolle des Datenflusses durch Aktivierungsfunktion"
+            />
+          ),
+        },
+        {
+          text: (
+            <>
+              Die Idee dahinter stammt daher, wie unsere eigenen Gehirne
+              funktionieren:
               <br />
               <br />
               die Neuronen gehen Verbindungen miteinander ein und senden
@@ -459,7 +481,7 @@ function TutorialNN({ onClose }) {
           visual: BRAIN_LOGO,
         },
       ],
-    }, // DONE
+    },
     {
       title: "LAYERS",
       pages: [
@@ -524,7 +546,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    }, // INPUT/OUTPUT NN
+    },
     {
       title: "KLASSIFIZIERUNG UND REGRESSION",
       pages: [
@@ -633,7 +655,7 @@ function TutorialNN({ onClose }) {
           ),
         },
       ],
-    }, // INPUT/OUTPUT NN
+    },
     {
       title: "HYPERPARAMETER",
       pages: [
@@ -709,13 +731,13 @@ function TutorialNN({ onClose }) {
           ),
           visual: (
             <img
-              src={require("../assets/model accuracy.png")}
+              src={require("../../assets/model accuracy.png")}
               alt="Beispiel-Graph für abnehmende Modellgenauigkeit durch Overfitting"
             />
           ),
         },
       ],
-    }, // DONE
+    },
   ];
 
   return <TutorialLayout sections={sections} onClose={onClose} />;
